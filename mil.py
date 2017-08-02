@@ -1,5 +1,3 @@
-
-
 # import the necessary packages
 from imutils.video import VideoStream
 import datetime
@@ -12,7 +10,7 @@ import cv2
 # construct the argument parse and parse the arguments
 ap = argparse.ArgumentParser()
 ap.add_argument("-p", "--picamera", type=int, default=-1,
-	help="whether or not the Raspberry Pi camera should be used")
+help="whether or not the Raspberry Pi camera should be used")
 args = vars(ap.parse_args())
 
 # initialize the video stream and allow the cammera sensor to warmup
@@ -26,10 +24,10 @@ obama_face_encoding = face_recognition.face_encodings(obama_image)[0]
 
 # loop over the frames from the video stream
 while True:
-	# grab the frame from the threaded video stream and resize it
-	# to have a maximum width of 400 pixels
-	ret,frame = vs.read()
-	frame = imutils.resize(frame, width=400)
+    # grab the frame from the threaded video stream and resize it
+    # to have a maximum width of 400 pixels
+    ret,frame = vs.read()
+    frame = imutils.resize(frame, width=400)
 
     # Find all the faces and face enqcodings in the frame of video
     face_locations = face_recognition.face_locations(frame)
@@ -44,24 +42,20 @@ while True:
         if match[0]:
             name = "Barack"
 
-        # Draw a box around the face
+    # Draw a box around the face
         cv2.rectangle(frame, (left, top), (right, bottom), (0, 0, 255), 2)
-
         # Draw a label with a name below the face
         cv2.rectangle(frame, (left, bottom - 35), (right, bottom), (0, 0, 255), cv2.FILLED)
         font = cv2.FONT_HERSHEY_DUPLEX
         cv2.putText(frame, name, (left + 6, bottom - 6), font, 1.0, (255, 255, 255), 1)
 
 
-
-	# show the frame
-	cv2.imshow("Frame", frame)
-	key = cv2.waitKey(1) & 0xFF
-
-	# if the `q` key was pressed, break from the loop
-	if key == ord("q"):
-		break
-
-# do a bit of cleanup
+    # show the frame
+    cv2.imshow("Frame", frame)
+    key = cv2.waitKey(1) & 0xFF
+    # if the `q` key was pressed, break from the loop
+    if key == ord("q"):
+        break
+        # do a bit of cleanup
 cv2.destroyAllWindows()
 vs.stop()
