@@ -9,7 +9,6 @@
 import face_recognition
 import picamera
 import numpy as np
-import cv2
 
 
 # Get a reference to the Raspberry Pi camera.
@@ -31,8 +30,7 @@ face_encodings = []
 while True:
     print("Capturing image.")
     # Grab a single frame of video from the RPi camera as a numpy array
-    test = camera.capture(output, format="rgb")
-    cv2.imshow("Frame", test)
+    camera.capture(output, format="rgb")
 
     # Find all the faces and face encodings in the current frame of video
     face_locations = face_recognition.face_locations(output)
