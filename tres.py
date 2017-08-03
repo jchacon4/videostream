@@ -21,7 +21,7 @@ output = np.empty((240, 320, 3), dtype=np.uint8)
 
 # Load a sample picture and learn how to recognize it.
 print("Loading known face image(s)")
-obama_image = face_recognition.load_image_file("obama_small.jpg")
+obama_image = face_recognition.load_image_file("obama.jpg")
 obama_face_encoding = face_recognition.face_encodings(obama_image)[0]
 
 # Initialize some variables
