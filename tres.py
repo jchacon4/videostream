@@ -32,6 +32,7 @@ while True:
     print("Capturing image.")
     # Grab a single frame of video from the RPi camera as a numpy array
     camera.capture(output, format="rgb")
+    cv2.imshow("Frame", output)
 
     # Find all the faces and face encodings in the current frame of video
     face_locations = face_recognition.face_locations(output)
@@ -48,5 +49,3 @@ while True:
             name = "Barack Obama"
 
         print("I see someone named {}!".format(name))
-
-    cv2.imshow("Frame", camera.capture(output, format="rgb"))
