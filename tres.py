@@ -31,8 +31,8 @@ face_encodings = []
 while True:
     print("Capturing image.")
     # Grab a single frame of video from the RPi camera as a numpy array
-    camera.capture(output, format="rgb")
-    cv2.imshow("Frame", output)
+    test = camera.capture(output, format="rgb")
+    cv2.imshow("Frame", test)
 
     # Find all the faces and face encodings in the current frame of video
     face_locations = face_recognition.face_locations(output)
