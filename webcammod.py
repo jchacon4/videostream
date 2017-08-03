@@ -1,4 +1,5 @@
 from imutils.video import VideoStream
+import argparse
 import imutils
 import time
 import face_recognition
