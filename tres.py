@@ -49,4 +49,4 @@ while True:
 
         print("I see someone named {}!".format(name))
 
-    cv2.imshow("Frame", camera)
+    cv2.imshow("Frame", camera.capture(output, format="rgb"))
