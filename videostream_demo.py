@@ -1,7 +1,6 @@
 # USAGE
 # python videostream_demo.py
 # python videostream_demo.py --picamera 1
-
 # import the necessary packages
 from imutils.video import VideoStream
 import datetime
